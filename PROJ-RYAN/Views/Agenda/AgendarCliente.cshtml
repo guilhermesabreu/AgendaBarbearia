@@ -1,0 +1,78 @@
+﻿@model PROJ_RYAN.ViewModels.AgendaViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Agenda</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @{
+                if (@ViewBag.NomeInvalido != String.Empty || @ViewBag.NomeNaoInformado != String.Empty)
+                {
+                    <p style="color:#ff0000">@ViewBag.NomeInvalido</p>
+                    <p style="color:#ff0000">@ViewBag.NomeNaoInformado</p>
+                }
+            }
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control" } })
+            @{
+                if (@ViewBag.DataIndisponivel != String.Empty || @ViewBag.DataAnterior != string.Empty)
+                {
+                    <p style="color:#ff0000">@ViewBag.DataIndisponivel</p>
+                    <p style="color:#ff0000">@ViewBag.DataAnterior</p>
+                }
+            }
+            @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Hora, new { htmlAttributes = new { @class = "form-control" } })
+            @{
+                if (@ViewBag.HoraInvalida != String.Empty)
+                {
+                    <p style="color:#ff0000">@ViewBag.HoraInvalida</p>
+                    <p style="color:#ff0000">@ViewBag.DataAnterior</p>
+                }
+            }
+            @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
+        </div>
+    </div>
+     
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListaAgendados")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

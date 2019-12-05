@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/bootstrap-united.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="back">
+    <section class="header-site" style="margin-top:-210px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="text-center"> Bem-Vindo à página de ganhadores do Torneio</h1>
+                    <p class="lead text-center" style="color:#0a226f">
+                        Abaixo estão os cortes mais curtidos do mês. Confira !!!
+                    </p>
+                    <div class="text-center">
+                        <a href="#gan"><img src="~/Images/giphyarrow.gif" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-site" id="gan">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="text-center" style="color:#20465c"> Ganhadores </h1>
+                </div>
+            </div>
+            <form enctype="multipart/form-data" action="/Image/Upload" method="post" class="putImages">
+                @Html.AntiForgeryToken()
+                <fieldset class="clearfix">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-center" style="margin-bottom:-20px">
+                                <img src="~/Images/coroa1.png" alt="ganhador" width="100" />
+                            </div>
+                            <div class="thumbnail">
+                                <img class="preview-img1" src="~/Repository/Imagem1.png" alt="imagem1" width="500" />
+                                <div class="caption text-center">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <h3> Hulk Smash</h3>
+                                    <p>
+                                        Na história original dos quadrinhos, o Hulk é um selvagem e poderoso alter ego do
+                                        Dr. Robert Bruce Banner, um cientista que foi atingido por raios gama enquanto salvava
+                                        um adolescente durante o teste militar de uma bomba por ele desenvolvida.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="text-center" style="margin-bottom:150px"></div>
+                            <div class="thumbnail">
+                                <img class="preview-img2" src="~/Repository/Imagem2.png" alt="imagem2" width="500" />
+                                <div class="caption text-center">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <h3> Captain America</h3>
+                                    <p>
+                                        Capitão América (Steven Rogers) Homem de
+                                        ferro(Captain America, em inglês), é o alter ego de Steve Rogers,
+                                        um personagem de HQ (História em Quadrinhos) da Marvel Comics.
+                                        Foi criado por Joe Simon e Jack Kirby, apareceu pela primeira vez
+                                        em Captain America Comics #1 (Março de 1941).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="text-center" style="margin-bottom:220px"></div>
+                            <div class="thumbnail">
+                                <img class="preview-img3" src="~/Repository/Imagem3.png" alt="imagem3" width="500" />
+                                <div class="caption text-center">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <h3> Iron Man</h3>
+                                    <p>
+                                        Se você não conhece muito bem a história de Tony Stark,
+                                        o personagem playboy da Marvel interpretado por Robert Downey Jr. no cinema,
+                                        aqui poderá entender as diferenças e as liberdades tomadas
+                                        com relação aos quadrinhos. O herói ferroso foi criado por
+                                        Stan Lee e estreou em 1963 nas HQs.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#instr"><img src="~/Images/bigode.png" /></a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+    <section class="info-site" id="instr">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="text-center" style="color:#20465c;"> Quero ser o Próximo vencedor </h1>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Siga a nossa página no Instagram e/ou no Facebook</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Compartilhe a sua foto com o máximo de amigos possíveis</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Só esperar o dia da divulgação</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://www.instagram.com/guiilhermesabreu/" target="_blank"><img src="~/Images/Instagram.png" /></a>
+                        <a href="https://www.facebook.com/guilherme.santos.5203" target="_blank"><img src="~/Images/Facebook.png" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="img-site" id="cont">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="text-center" style="color:#20465c;"> Contato </h1>
+
+                    <p class="lead text-center">
+                        <a href="https://www.facebook.com/BarbeariaFamiliaCosta/?eid=ARAFsSTpQBA-iXE5BBh7KocNd-09yL4hErmuMfpseosdrstig1D8KSgAaJfUr3I17hb017N-PiGtcIvc&timeline_context_item_type=intro_card_work&timeline_context_item_source=100014520311814&fref=tag" target="_blank" class="fa fa-facebook"></a>
+                        <a href="https://www.instagram.com/ryanbielbarber_oficial/" class="fa fa-instagram" target="_blank"></a>
+                    </p>
+                    <iframe style="margin-left:24%;margin-right:20%; width:50%; border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1823.2385224102359!2d-46.40812934205435!3d-23.943565544728692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDU2JzM2LjgiUyA0NsKwMjQnMjUuMyJX!5e0!3m2!1spt-BR!2sbr!4v1562687443733!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" allowfullscreen></iframe>
+                    <br />
+                    <br />
+                    <h3 class=" text-center"> Endereço: </h3>
+                    <p class="lead text-info text-center">
+                        Dique do pompeba 339 altos -
+                        Cidade Náutica, São Vicente - SP, 11355-280
+                    </p>
+                    <h3 class=" text-center"> Número: </h3>
+                    <p class="lead text-info text-center">
+                        (13) 99674-5424
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/uploadImage.js"></script>
+</body>

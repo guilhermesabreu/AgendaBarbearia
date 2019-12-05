@@ -1,0 +1,72 @@
+﻿@{
+
+    Layout = null;
+}
+
+<head>
+    <!------ Include the above in your HEAD tag ---------->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- Include the above in your HEAD tag -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link href="~/Content/Login.css" rel="stylesheet" />
+</head>
+
+<div class="main">
+    <a href="~/Views/LoginCadastro/Index.cshtml">~/Views/LoginCadastro/Index.cshtml</a>
+    <div class="container">
+        <center>
+            <br />
+            <div class="middle">
+                <div class="form-group" style="margin-bottom:4%; margin-top:-21%; float:left">
+                </div>
+                <div id="login" style="margin-left:-30%;">
+                    <form method="post" action="/LoginCadastro/Login" id="frmLogin">
+                        <fieldset class="clearfix">
+                            <div class="form-group">
+                                <label for="login" style="font-size:200%;color:#000000">Login</label>
+                                <br />
+                                <input style="font-size:150%; width:100%;height:40px; border-radius:20px;" type="email" class="form-control" id="login_email" name="login_email" placeholder="email" required />
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="senha" style="font-size:200%;color:#000000;">Senha</label>
+                                <br />
+                                <input style="font-size:150%; width:100%;height:40px; border-radius:20px;" type="password" class="form-control" id="senha" name="senha" placeholder="senha" required />
+                            </div>
+
+                            <div>
+                                <span style="width:48%; text-align:left;  display: inline-block;">
+                                    <a class="small-text" href="#" style="font-size:150%">
+                                        Forgot password?
+                                    </a>
+                                </span>
+                                <span style="width:50%; text-align:right; display: inline-block;"><input style="color:#ffffff;background-color:#098a23;border-radius:20px;" type="submit" name="submitButton" value="Sign In"></span>
+                              
+                                <input class="btn btn-danger" style="color:#ffffff;background-color:#f21a1a;border-radius:20px; width:100%;font-size:100%;font-weight:600;" type="submit" name="submitButton" value="Update User" />
+                            </div>
+
+                            @{
+                                <!--Se a página foi postada, ou seja, se chegou ao método Post-->
+                                if (IsPost)
+                                {
+                                    <!--Se o Razor ViewBag for diferente de vazio-->
+                                    if (@ViewBag.ErroAutenticacao != String.Empty)
+                                    {
+                                        <p style="font-size:150%; color:#ff0000">@ViewBag.ErroAutenticacao</p>
+                                    }
+                                }
+                            }
+
+                        </fieldset>
+                        <div class="clearfix"></div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div> <!-- end login -->
+            </div>
+        </center>
+    </div>
+</div>

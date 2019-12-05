@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MvcCRUDDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="id_login" />
+    </Key>
+    <Property Name="id_login" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="senha" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="data_cadastro" Type="DateTime" Precision="3" />
+    <Property Name="login_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="MvcCRUDDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="login" EntityType="Self.login" />
+  </EntityContainer>
+</Schema>
