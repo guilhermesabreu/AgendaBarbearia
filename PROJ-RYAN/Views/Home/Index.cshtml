@@ -11,7 +11,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/Content/bootstrap-united.css" rel="stylesheet" type="text/css" />
 </head>
-
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="navbar-default"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/Home/Index" class="navbar-brand" id="logo" style="color:#0a226f; font-size:150%">Logo do Salão</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="voltar" href="#gan">Ganhadores</a></li>
+                <li><a class="voltar" href="#instr">Instruções</a></li>
+                <li><a class="voltar" href="#cont">Contato</a></li>
+                <li><a href="/Agenda/ListaAgendadosCliente">Agenda</a></li>
+                <li><a class="active" id="opcAdm" href="/LoginCadastro/Index">Entrar como o Dono do Salão</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <body class="back">
     <section class="header-site" style="margin-top:-210px;">
         <div class="container">
@@ -28,7 +48,7 @@
             </div>
         </div>
     </section>
-
+    <asp:LoginStatus ID="LoginStatus1" runat="server" />
     <section class="content-site" id="gan">
         <div class="container">
             <div class="row">

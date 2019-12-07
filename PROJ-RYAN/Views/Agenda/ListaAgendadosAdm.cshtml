@@ -4,10 +4,27 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="navbar-default"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/Adm/Index" class="navbar-brand" id="logo" style="color:#0a226f; font-size:150%">Logo do Salão</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Agenda/ListaAgendadosAdm">Agenda</a></li>
+                <li><a class="active" id="opcAdm" href="/LoginCadastro/Index">Entrar como o Dono do Salão</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <h2>Index</h2>
 
-<a href="/Agenda/AgendarCliente"><img src="~/Images/agenda2.png" width="60"></img></a>
+<a href="/Agenda/AgendarClienteAdm"><img src="~/Images/agenda2.png" width="60"></img></a>
 
 <div class="text-center" style="margin-bottom:5px;">
     <button type="button" class="btn btn-primary" style="background-color:#05169c;border-color:#05169c" data-toggle="modal" data-target="#modalExemplo">
@@ -30,7 +47,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary"><a style="text-decoration:none;color:white" href="/Agenda/AgendarCliente">Agendar Corte</a></button>
+                <button type="button" class="btn btn-primary"><a style="text-decoration:none;color:white" href="/Agenda/AgendarClienteAdm">Agendar Corte</a></button>
             </div>
         </div>
     </div>
@@ -70,20 +87,14 @@
                                     @Html.DisplayFor(modelItem => item.Hora)
                                 </td>
                                 <td id="acoes">
-                                    @Html.ActionLink("Edit", "AtualizarDadosClientes", new { id = item.ClienteId }) |
-                                    @Html.ActionLink("Details", "DetalhesCliente", new { id = item.ClienteId }) |
-                                    @Html.ActionLink("Delete", "DeletarAgendamento", new { id = item.ClienteId })
+                                    @Html.ActionLink("Edit", "AtualizarDadosClientes", new { id = item.ClienteId }, new { @class = "btn btn-success" }) 
+                                    @Html.ActionLink("Delete", "DeletarAgendamento", new { id = item.ClienteId }, new { @class="btn btn-danger"})
                                 </td>
                             </tr>
                         </tbody>
-                    }                    
+                    }
                 }
             </table>
         </div>
     }
 }
-
-<script type="text/javascript">
-    var a = $("#userType").text();
-    console.log(a);
-</script>

@@ -6,48 +6,10 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <link href="~/Content/bootstrap-united.css" rel="stylesheet" type="text/css" />
-    <script>
-        $(document).ready(function () {
-            var url = window.location.href;
-            console.log($("#userType").val());
-            if (url.indexOf("Adm") > -1) {
-                $("#logo").html("Cabeleireiro");
-                $("#userType").attr("href","/Home/Index");
-                $("#userType").html("Cliente");
-            }
-            else if (url.indexOf("http://localhost:50462/") > -1) {
-                $("#logo").html("Cliente");
-                $("#userType").attr("href", "/Adm/Index");
-                $("#userType").html("Cabeleireiro");
-            }
-            console.log(url);
-        });
-    </script>
 </head>
+
 <body>
     @RenderBody()
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="navbar-default"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" id="logo" style="color:#0a226f; font-size:150%"></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#gan">Ganhadores</a></li>
-                    <li><a href="#instr">Instruções</a></li>
-                    <li><a href="#cont">Contato</a></li>
-                    <li><a id="userType"></a></li>
-                    <li><a href="/Agenda/AgendarCliente">Agendar Corte</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
     <section class="footer-site">
         <div class="container">
             <div class="row">
@@ -62,7 +24,7 @@
             </div>
         </div>
     </section>
-
+    <script src="~/Scripts/handlerHeader.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

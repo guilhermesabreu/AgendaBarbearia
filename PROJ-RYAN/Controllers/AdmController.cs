@@ -11,12 +11,11 @@ namespace PROJ_RYAN.Controllers
         // GET: Adm
         public ActionResult Index()
         {
-            //var usuarioLogado = HttpContext.Session["usuario"];
-            //if(usuarioLogado == null)
-            //{
-            //    return Redirect("/LoginCadastro/Index");
-            //}
-
+            var usuarioLogado = HttpContext.Session["usuario"];
+            if (usuarioLogado == null)
+            {                
+                return Redirect("/LoginCadastro/Index");
+            }
             return View();
         }
     }

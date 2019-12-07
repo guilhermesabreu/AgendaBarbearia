@@ -249,6 +249,7 @@
       <DependentUpon>Agenda.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\handlerHeader.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -284,7 +285,9 @@
     <Content Include="Views\Agenda\DeletarAgendamento.cshtml" />
     <Content Include="Views\Agenda\DetalhesCliente.cshtml" />
     <Content Include="Views\Agenda\AtualizarDadosClientes.cshtml" />
-    <Content Include="Views\Agenda\ListaAgendados.cshtml" />
+    <Content Include="Views\Agenda\ListaAgendadosCliente.cshtml" />
+    <Content Include="Views\Agenda\ListaAgendadosAdm.cshtml" />
+    <Content Include="Views\Agenda\AgendarClienteAdm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
