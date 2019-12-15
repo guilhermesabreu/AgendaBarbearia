@@ -208,9 +208,14 @@
     <Content Include="Images\coroa1.png" />
     <Content Include="Images\Facebook.png" />
     <Content Include="Images\giphyarrow.gif" />
+    <Content Include="Images\horario.png" />
+    <Content Include="Images\horariologo.png" />
+    <Content Include="Images\horarioverm.png" />
     <Content Include="Images\Instagram.png" />
     <Content Include="Images\melhor_red.jpg" />
     <Content Include="Images\mustache.png" />
+    <Content Include="Images\relogioamarelo.png" />
+    <Content Include="Images\relogiolaranja.png" />
     <Content Include="Models\Agenda.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Agenda.edmx</DependentUpon>

@@ -103,7 +103,7 @@ namespace PROJ_RYAN.Controllers
                 }
             }
         }
-
+  
         public async void DeletarAgendamentoAutomaticamente(List<Agenda> agendas)
         {
             var horaAtual = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
@@ -396,7 +396,7 @@ namespace PROJ_RYAN.Controllers
                 {
                     ctx.Entry(agenda).State = EntityState.Modified;
                     await ctx.SaveChangesAsync();
-                    return RedirectToAction("ListaAgendados");
+                    return RedirectToAction("ListaAgendadosAdm");
                 }
                 return View(agenda);
             }
@@ -433,7 +433,15 @@ namespace PROJ_RYAN.Controllers
             Agenda agenda = await ctx.Agenda.FindAsync(id);
             ctx.Agenda.Remove(agenda);
             ctx.SaveChanges();
-            return RedirectToAction("ListaAgendados");
+            var usuarioLogado = HttpContext.Session["usuario"];
+            if (usuarioLogado == null)
+            {
+                return Redirect("/Agenda/ListaAgendados");
+            }
+            else
+            {
+                return RedirectToAction("ListaAgendadosAdm");
+            }            
         }
 
         protected override void Dispose(bool disposing)

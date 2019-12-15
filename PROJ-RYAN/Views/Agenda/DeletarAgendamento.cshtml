@@ -4,7 +4,24 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="navbar-default"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/Adm/Index" class="navbar-brand" id="logo" style="color:#0a226f; font-size:150%">Logo do Salão</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Agenda/ListaAgendadosAdm">Agenda</a></li>
+                <li><a class="active" id="opcAdm" href="/LoginCadastro/Index">Entrar como o Dono do Salão</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
@@ -43,7 +60,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "ListaAgendados")
+            @Html.ActionLink("Back to List", "ListaAgendadosAdm")
         </div>
     }
 </div>
