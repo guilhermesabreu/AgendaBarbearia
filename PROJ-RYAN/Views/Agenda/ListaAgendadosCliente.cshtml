@@ -63,40 +63,44 @@
     foreach (var diasComDistinct in ViewBag.DiaComDistinct)
     {
         <div class="table-responsive">
-            <ul class="list-group">
-                <li class="list-group-item active text-center">
-                    Dia @diasComDistinct
-                </li>
-            </ul>
+            <div class="container">
+                <div class="row">
+                    <ul class="list-group">
+                        <li class="list-group-item active text-center">
+                            Dia @diasComDistinct
+                        </li>
+                    </ul>
 
-            <table class="table table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-center" style="color:#05169c;font-size:130%">
-                            @Html.DisplayNameFor(model => model.Nome)
-                        </th>
-                        <th scope="col" class="text-center" style="color:#05169c;font-size:130%">
-                            @Html.DisplayNameFor(model => model.Hora)
-                        </th>
-                    </tr>
-                </thead>
-                @foreach (var item in Model)
-                {
-                    if (item.Data.Day + "/" + item.Data.Month + "/" + item.Data.Year == diasComDistinct)
-                    {
-                        <tbody>
-                            <tr scope="row">
-                                <td style="width:25%;color:black;">
-                                    @Html.DisplayFor(modelItem => item.Nome)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Hora)
-                                </td>
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center" style="color:#05169c;font-size:130%">
+                                    @Html.DisplayNameFor(model => model.Nome)
+                                </th>
+                                <th scope="col" class="text-center" style="color:#05169c;font-size:130%">
+                                    @Html.DisplayNameFor(model => model.Hora)
+                                </th>
                             </tr>
-                        </tbody>
-                    }
-                }
-            </table>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            if (item.Data.Day + "/" + item.Data.Month + "/" + item.Data.Year == diasComDistinct)
+                            {
+                                <tbody>
+                                    <tr scope="row">
+                                        <td style="width:25%;color:black;">
+                                            @Html.DisplayFor(modelItem => item.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Hora)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
         </div>
     }
 }

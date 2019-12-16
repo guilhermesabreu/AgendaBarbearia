@@ -62,7 +62,10 @@
 @{
     foreach (var diasComDistinct in ViewBag.DiaComDistinct)
     {
-        <div class="table-responsive">
+        
+<div class="table-responsive">
+    <div class="container">
+        <div class="row">
             <ul class="list-group">
                 <li class="list-group-item active text-center">
                     Dia @diasComDistinct
@@ -103,5 +106,8 @@
                 }
             </table>
         </div>
+    </div>
+</div>
+
     }
 }
