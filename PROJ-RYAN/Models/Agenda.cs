@@ -19,5 +19,6 @@ namespace PROJ_RYAN.Models
         public string Email { get; set; }
         public System.DateTime DataHora { get; set; }
         public Nullable<System.TimeSpan> Hora { get; set; }
+        public string Celular { get; set; }
     }
 }

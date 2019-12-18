@@ -24,5 +24,9 @@ namespace PROJ_RYAN.ViewModels
         [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
         [Display(Name = "Horário")]        
         public TimeSpan? Hora { get; set; }
+        [Display(Name ="Celular")] 
+        [DataType(DataType.PhoneNumber)]
+        [DisplayFormat(DataFormatString = "{0: (###) ###-####}")]        
+        public string Celular { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\userd\OneDrive\Área de Trabalho\SolutionsWebC#\BarberShop-Tournment-master\BarberShop-Tournment-master\PROJ-RYAN\Models\Agenda.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\src\WS- Web\barber\PROJ-RYAN\Models\Agenda.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

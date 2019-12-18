@@ -4,21 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="barbeariaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="barbeariaModelStoreContainer">
-    <EntitySet Name="Agenda" EntityType="barbeariaModel.Store.Agenda" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="Agenda">
-    <Key>
-      <PropertyRef Name="ClienteId" />
-    </Key>
-    <Property Name="ClienteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="200" />
-    <Property Name="Email" Type="varchar" Nullable="true" MaxLength="100" />
-    <Property Name="DataHora" Type="datetime" Nullable="false" />
-    <Property Name="Hora" Type="time" Nullable="true" Precision="7" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="barbeariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agenda">
+          <Key>
+            <PropertyRef Name="ClienteId" />
+          </Key>
+          <Property Name="ClienteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="DataHora" Type="datetime" Nullable="false" />
+          <Property Name="Hora" Type="time" Precision="7" />
+          <Property Name="Celular" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="barbeariaModelStoreContainer">
+          <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="barbeariaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -31,6 +32,7 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DataHora" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Hora" Type="Time" Precision="7" />
+          <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="barbeariaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agenda" EntityType="Self.Agenda" />
@@ -44,7 +46,8 @@
     <EntitySetMapping Name="Agenda">
       <EntityTypeMapping TypeName="IsTypeOf(barbeariaModel.Agenda)">
         <MappingFragment StoreEntitySet="Agenda">
-          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="DataHora" ColumnName="DataHora" />

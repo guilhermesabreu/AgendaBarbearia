@@ -7,17 +7,20 @@
     background-attachment: fixed;
     padding-top: 300px;
     padding-bottom: 300px;
+    padding-right:0%;
+    width:100%;
 }
+
 
 .content-site {
     background-color: #ffffff;
     color: #000000;
     background-attachment: fixed;
+    background-size: cover;
     padding-top: 2%;
     padding-bottom: 150px;
     margin-top: 22%;
-    margin-left: 0%;
-    margin-right: 0%;
+    width: 100%;
 }
 
 .img-site {

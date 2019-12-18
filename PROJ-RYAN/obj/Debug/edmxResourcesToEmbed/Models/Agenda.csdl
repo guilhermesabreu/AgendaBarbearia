@@ -9,6 +9,7 @@
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DataHora" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="Hora" Type="Time" Precision="7" />
+    <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="barbeariaEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Agenda" EntityType="Self.Agenda" />

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Agenda">
       <EntityTypeMapping TypeName="IsTypeOf(barbeariaModel.Agenda)">
         <MappingFragment StoreEntitySet="Agenda">
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
           <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Email" ColumnName="Email" />

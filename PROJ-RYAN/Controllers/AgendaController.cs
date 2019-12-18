@@ -40,7 +40,8 @@ namespace PROJ_RYAN.Controllers
                         Nome = agendamento.Nome,
                         Email = agendamento.Email,
                         Data = agendamento.DataHora,
-                        Hora = agendamento.Hora
+                        Hora = agendamento.Hora,
+                        Celular = agendamento.Celular
                     };
                     // Adcionando os novos valores populados na variável que representa as prop. da VM
                     propriedadesDaModelVM.Add(x);
@@ -86,7 +87,8 @@ namespace PROJ_RYAN.Controllers
                             Nome = agendamento.Nome,
                             Email = agendamento.Email,
                             Data = agendamento.DataHora,
-                            Hora = agendamento.Hora
+                            Hora = agendamento.Hora,
+                            Celular = agendamento.Celular
                         };
                         // Adcionando os novos valores populados na variável que representa as prop. da VM
                         propriedadesDaModelVM.Add(x);
@@ -165,7 +167,8 @@ namespace PROJ_RYAN.Controllers
                         Nome = viewModel.Nome,
                         Email = viewModel.Email,
                         DataHora = viewModel.Data,
-                        Hora = viewModel.Hora
+                        Hora = viewModel.Hora,
+                        Celular = viewModel.Celular
                     };
 
                     if (!string.IsNullOrEmpty(viewModel.Nome))
@@ -270,7 +273,8 @@ namespace PROJ_RYAN.Controllers
                         Nome = viewModel.Nome,
                         Email = viewModel.Email,
                         DataHora = viewModel.Data,
-                        Hora = viewModel.Hora
+                        Hora = viewModel.Hora,
+                        Celular = viewModel.Celular
                     };
 
                     if (!string.IsNullOrEmpty(viewModel.Nome))
