@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule Cut</title>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <link href="~/Content/Style.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-united.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
     @RenderBody()
-    <section class="footer-site" style="margin-bottom:-100%;margin-right:0%;">
+    <section class="footer-site">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -28,7 +28,6 @@
             </div>
         </div>
     </section>
-    <script src="~/Scripts/handlerHeader.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

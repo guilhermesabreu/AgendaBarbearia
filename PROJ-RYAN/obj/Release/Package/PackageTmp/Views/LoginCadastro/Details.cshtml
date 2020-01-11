@@ -1,0 +1,58 @@
+﻿@model PROJ_RYAN.Models.login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>login</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.senha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.senha)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.data_cadastro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.data_cadastro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.login_email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.login_email)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id_login }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

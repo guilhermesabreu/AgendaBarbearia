@@ -1,0 +1,83 @@
+﻿.back {
+    background-image: url(../Images/melhor_red.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    background-attachment: fixed;
+    padding-top: 300px;
+    padding-bottom: 300px;
+    padding-right:0%;
+    width:100%;
+}
+
+
+.content-site {
+    background-color: #ffffff;
+    color: #000000;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 2%;
+    padding-bottom: 150px;
+    margin-top: 22%;
+    width: 100%;
+}
+
+.img-site {
+    background-color: #ffffff;
+    color: #000000;
+    background-attachment: fixed;
+    padding-top: 2%;
+    margin-top: 5%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.footer-site {
+    background-color: #333333;
+    color: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    margin-top: 5%;
+    margin-bottom: -1000%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.info-site {
+    background-color: #ffffff;
+    color: #000000;
+    background-attachment: fixed;
+    padding-top: 2%;
+    margin-top: 5%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+/* FaceBook Button*/
+.fa {
+    padding: 15px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 100%;
+}
+    /* Add a hover effect if you want */
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-instagram {
+    background: #fe0458;
+    color: white;
+}

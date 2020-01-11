@@ -1,0 +1,129 @@
+﻿@model PROJ_RYAN.Models.Agenda
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Cut</title>
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/Content/Agenda.css" rel="stylesheet" />
+</head>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="navbar-default"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="logo" style="color:#0a226f; font-size:150%">Logo do Salão</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/AgendaAdm/ListaAgendadosAdm">Agenda</a></li>
+                <li><a class="active" id="opcAdm" href="/LoginCadastro/Index">Entrar como o Dono do Salão</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h2>Atualizar Dados</h2>
+<div class="container" style="margin-top:20px">
+    <div class="text-center" style="margin-bottom:5px;">
+        <input type="image" src="~/Images/horariologo.png" title="Horários de Serviço" alt="Horários de Serviço" data-toggle="modal" data-target="#modalExemplo" width="6%">
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color:#05169c;font-size:130%;font-weight:700" id="exampleModalLabel">Horários de Funcionamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color:#05169c;font-size:130%">
+                09:30 | 10:20 | 11:10 | 12:00 | 12:50 | 13:40 | 14:30 | 15:20 | 16:10 | 17:00 | 17:50 | 18:40 | 19:30
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="container-fluid">
+    <section class="row justify-content-center">
+        <div class="col-12 col-md-3 col-sm-6 top testbox">
+            <h1 style="color:red">Deletar</h1>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ClienteId)
+                <div class="form-group">
+                    <label id="icon" for="name" style="background-color:red"><i class="icon-user"></i></label>
+                    -@Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "Nome Completo", @style = "margin-top:-43px;margin-left:33px;width:100%" } })
+                    @{
+                        if (@ViewBag.NomeInvalido != String.Empty || @ViewBag.NomeNaoInformado != String.Empty)
+                        {
+                            <p style="color:#ff0000">@ViewBag.NomeInvalido</p>
+                            <p style="color:#ff0000">@ViewBag.NomeNaoInformado</p>
+                        }
+                    }
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label id="icon" for="name" style="background-color:red"><i class="glyphicon-apple"></i></label>
+                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "13 91234-5678", @type = "cellphone", @style = "margin-top:-43px;margin-left:33px;" } })
+                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label id="icon" for="name" style="background-color:red"><i class="icon-calendar"></i></label>
+                    @Html.EditorFor(model => model.DataHora, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px;margin-left:33px;" } })
+                    @{
+                        if (@ViewBag.DataIndisponivel != String.Empty || @ViewBag.DataAnterior != string.Empty)
+                        {
+                            <p style="color:#ff0000">@ViewBag.DataIndisponivel</p>
+                            <p style="color:#ff0000">@ViewBag.DataAnterior</p>
+                        }
+                    }
+                    @Html.ValidationMessageFor(model => model.DataHora, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label id="icon" for="name" style="background-color:red"><i class="icon-time"></i></label>
+                    @Html.EditorFor(model => model.Hora, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px; margin-left:33px;width:100%" } })
+                    @{
+                        if (@ViewBag.HoraInvalida != String.Empty)
+                        {
+                            <p style="color:#ff0000">@ViewBag.HoraInvalida</p>
+                            <p style="color:#ff0000">@ViewBag.DataAnterior</p>
+                        }
+                    }
+                    @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <div class="text-center">
+                        <input type="submit" value="Create" class="btn btn-default" style="background-color:red" />
+                    </div>
+                </div>
+            }
+        </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+    </section>
+</section>

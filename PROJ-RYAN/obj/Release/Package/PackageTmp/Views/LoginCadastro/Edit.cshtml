@@ -1,0 +1,73 @@
+﻿@model PROJ_RYAN.Models.login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <!------ Include the above in your HEAD tag ---------->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Include the above in your HEAD tag -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="~/Content/bootstrap-united.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/Content/Login.css" rel="stylesheet" />
+</head>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row">
+            <h1 class="lead" style="text-align:center;color:#010c12 ;font-size:300%;margin-left:50%">Atualizar Usuário</h1>
+            <hr />
+            <div class="modal-body" style="padding-left:10%;padding-right:-80%;padding-bottom:-20%;background-color:#bfe2f6">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.id_login)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2", @style = "color:#010c12;font-size:200%;" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control", @style = "font-size:150%; width:70%;" } })
+                        @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.senha, htmlAttributes: new { @class = "control-label col-md-2", @style = "color:#010c12;font-size:200%;" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control", @style = "font-size:150%; width:70%;" } })
+                        @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.login_email, htmlAttributes: new { @class = "control-label col-md-2", @style = "color:#010c12;font-size:200%;" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.login_email, new { htmlAttributes = new { @class = "form-control", @style = "font-size:150%; width:70%;" } })
+                        @Html.ValidationMessageFor(model => model.login_email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    
+                    <div class="col-md-offset-2 col-md-10">
+                        <br />
+                        <input style="width:10%;font-size:170%" type="submit" value="Save" class="btn btn-success" />
+                        @Html.ActionLink("Login", "Index", "LoginCadastro", new { @class = "btn btn-danger", @style = "font-size:170%; width:10%;" })
+                        @Html.ActionLink("Voltar", "List", "LoginCadastro", new { @class = "btn btn-info", @style = "font-size:170%; width:10%;" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MvcCRUDDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="id_login" />
+    </Key>
+    <Property Name="id_login" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="200" />
+    <Property Name="senha" Type="varchar" MaxLength="50" />
+    <Property Name="data_cadastro" Type="datetime" />
+    <Property Name="login_email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="MvcCRUDDBModelStoreContainer">
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

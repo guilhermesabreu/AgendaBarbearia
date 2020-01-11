@@ -37,7 +37,7 @@ namespace PROJ_RYAN.Controllers
                 {
                     case "Sign In":
                         Session.Add("usuario", consultaUsuario);
-                        return Redirect("/Adm/Index");
+                        return Redirect("/AgendaAdm/ListaAgendadosAdm");
                     case "Update User":
                         return RedirectToAction("List");
                     default:
