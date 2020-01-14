@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using PROJ_RYAN.Models;
 using PROJ_RYAN.ViewModels;
 
@@ -108,11 +109,12 @@ namespace PROJ_RYAN.Controllers
                 return HttpNotFound();
             }
             return View(agenda);
-        }        
+        }
 
+        [HttpGet]
         public ActionResult AgendarClienteAdm()
         {
-            return View();
+            return PartialView("AgendarClienteAdm", new ViewModels.AgendaViewModel());
         }
 
         [HttpPost]
@@ -184,36 +186,31 @@ namespace PROJ_RYAN.Controllers
                                     }
                                     else
                                     {
-                                        ViewBag.DataAnterior = "Só é possível Cadastrar Datas do dia de Hoje em diante";
-                                        return View();
+                                        return Json("dia anterior", JsonRequestBehavior.AllowGet);
                                     }
                                 }
                                 else
                                 {
-                                    ViewBag.HoraInvalida = "Escolha apenas nossos horários de serviço. das 09:30 até as 19:30";
-                                    return View();
+                                    return Json("hora invalida", JsonRequestBehavior.AllowGet);
                                 }
                             }
                             else
                             {
-                                ViewBag.DataIndisponivel = "Esta data/hora já foi agendada, escolha outra data";
-                                return View();
+                                return Json("data indisponivel", JsonRequestBehavior.AllowGet);
                             }
                         }
                         else
                         {
-                            ViewBag.NomeInvalido = "Você já foi cadastrado, verifique seu nome e Horário na nossa Agenda";
-                            return View();
+                            return Json("nome invalido", JsonRequestBehavior.AllowGet);
                         }
                     }
                     else
                     {
-                        ViewBag.NomeNaoInformado = "Digite seu nome Completo";
-                        return View();
+                        return Json("nome incompleto", JsonRequestBehavior.AllowGet);
                     }
                 }
             }
-            return RedirectToAction("ListaAgendadosAdm");
+            return Json("sucesso", JsonRequestBehavior.AllowGet);
         }
         // GET: Agenda2/Edit/5
         public async Task<ActionResult> AtualizarDadosClientes(int? id)

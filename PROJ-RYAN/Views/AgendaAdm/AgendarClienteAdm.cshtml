@@ -22,7 +22,7 @@
     <section class="row justify-content-center">
         <section class="col-12">
 
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("AgendarClienteAdm", "AgendaAdm",FormMethod.Post,new { @id = "agendarForm" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <label id="icon" for="name"><i class="icon-user"></i></label>
-                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "Nome Completo", @style = "margin-top:-43px;margin-left:33px;width:100%" } })
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @id="txtNome" ,@class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "Nome Completo", @style = "margin-top:-43px;margin-left:33px;width:100%" } })
                     @{
                         if (@ViewBag.NomeInvalido != String.Empty || @ViewBag.NomeNaoInformado != String.Empty)
                         {
@@ -43,13 +43,13 @@
 
                 <div class="form-group">
                     <label id="icon" for="name"><i class="glyphicon-apple"></i></label>
-                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "13 91234-5678", @type = "cellphone", @style = "margin-top:-43px;margin-left:33px;" } })
+                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @id = "txtCel", @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "13 91234-5678", @type = "cellphone", @style = "margin-top:-43px;margin-left:33px;" } })
                     @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">
                     <label id="icon" for="name"><i class="icon-calendar"></i></label>
-                    @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px;margin-left:33px;" } })
+                    @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @id = "txtData", @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px;margin-left:33px;" } })
                     @{
                         if (@ViewBag.DataIndisponivel != String.Empty || @ViewBag.DataAnterior != string.Empty)
                         {
@@ -62,7 +62,7 @@
 
                 <div class="form-group">
                     <label id="icon" for="name"><i class="icon-time"></i></label>
-                    @Html.EditorFor(model => model.Hora, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px; margin-left:33px;" } })
+                    @Html.EditorFor(model => model.Hora, new { htmlAttributes = new { @id = "txtHora", @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px; margin-left:33px;" } })
                     @{
                         if (@ViewBag.HoraInvalida != String.Empty)
                         {
@@ -75,7 +75,7 @@
 
                 <div class="form-group">
                     <div class="text-center">
-                        <input type="submit" value="Create" class="btn btn-default" style="background-color:#e95420" />
+                        <input type="submit" value="Create" id="btnCriar" class="btn btn-default" style="background-color:#e95420" />
                     </div>
                 </div>
             }
@@ -83,5 +83,6 @@
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
         }
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     </section>
 </section>

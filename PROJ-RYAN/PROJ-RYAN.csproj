@@ -254,6 +254,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\enviarRequisicao.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -416,6 +417,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Modais\Horarios.cshtml" />
     <Content Include="Views\Modais\Agenda.cshtml" />
+    <Content Include="Views\Modais\Resposta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -70,51 +70,8 @@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ClienteId)
-                <div class="form-group">
-                    <label id="icon" for="name" style="background-color:red"><i class="icon-user"></i></label>
-                    -@Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "Nome Completo", @style = "margin-top:-43px;margin-left:33px;width:100%" } })
-                    @{
-                        if (@ViewBag.NomeInvalido != String.Empty || @ViewBag.NomeNaoInformado != String.Empty)
-                        {
-                            <p style="color:#ff0000">@ViewBag.NomeInvalido</p>
-                            <p style="color:#ff0000">@ViewBag.NomeNaoInformado</p>
-                        }
-                    }
-                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group">
-                    <label id="icon" for="name" style="background-color:red"><i class="glyphicon-apple"></i></label>
-                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "13 91234-5678", @type = "cellphone", @style = "margin-top:-43px;margin-left:33px;" } })
-                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group">
-                    <label id="icon" for="name" style="background-color:red"><i class="icon-calendar"></i></label>
-                    @Html.EditorFor(model => model.DataHora, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px;margin-left:33px;" } })
-                    @{
-                        if (@ViewBag.DataIndisponivel != String.Empty || @ViewBag.DataAnterior != string.Empty)
-                        {
-                            <p style="color:#ff0000">@ViewBag.DataIndisponivel</p>
-                            <p style="color:#ff0000">@ViewBag.DataAnterior</p>
-                        }
-                    }
-                    @Html.ValidationMessageFor(model => model.DataHora, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group">
-                    <label id="icon" for="name" style="background-color:red"><i class="icon-time"></i></label>
-                    @Html.EditorFor(model => model.Hora, new { htmlAttributes = new { @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @style = "margin-top:-43px; margin-left:33px;width:100%" } })
-                    @{
-                        if (@ViewBag.HoraInvalida != String.Empty)
-                        {
-                            <p style="color:#ff0000">@ViewBag.HoraInvalida</p>
-                            <p style="color:#ff0000">@ViewBag.DataAnterior</p>
-                        }
-                    }
-                    @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
-                </div>
-
+                
+                <div class="text-center"> Tem certeza que deseja deletar ?</div>
                 <div class="form-group">
                     <div class="text-center">
                         <input type="submit" value="Create" class="btn btn-default" style="background-color:red" />
