@@ -418,6 +418,8 @@
     <Content Include="Views\Modais\Horarios.cshtml" />
     <Content Include="Views\Modais\Agenda.cshtml" />
     <Content Include="Views\Modais\Resposta.cshtml" />
+    <Content Include="Views\Modais\Atualizar.cshtml" />
+    <Content Include="Views\Modais\Deletar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,6 +3,23 @@
     return false;
 }
 
+$(".btnAtualizar").click(function () {
+    var id = $(this).data("value");
+    $("#formAtualizar").load("/AgendaAdm/AtualizarDadosClientes/" + id,
+        function () {
+            $("#modalAtualizar").modal("show");
+            return false;
+        });
+});
+
+$(".btnDeletar").click(function () {
+    var id = $(this).data("value");
+    $("#formDeletar").load("/AgendaAdm/DeletarAgendamento/" + id,
+        function () {
+            $("#modalDeletar").modal("show");
+            return false;
+        });
+});
 
 $("#agendarForm").submit(function (event) {
     var data = $("#agendarForm").serialize();
@@ -14,7 +31,6 @@ $("#agendarForm").submit(function (event) {
         dataType: "JSON",
         success: function (response) {
             if (response == "sucesso") {
-                alert("Salvo com sucesso");
                 window.location.reload();
             }
             else if (response == "nome incompleto") {

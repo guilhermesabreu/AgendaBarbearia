@@ -54,18 +54,15 @@ namespace PROJ_RYAN.Controllers
                         propriedadesDaModelVM.Add(x);
                     }
 
-                    var diasAgendadosComDistinct = ctx.Agenda.Select(x => x.DataHora.Day + "/" + x.DataHora.Month + "/" + x.DataHora.Year).OrderBy(x => x).ToList().Distinct();
-                    var diasAgendadosSemDistinct = ctx.Agenda.Select(x => x.DataHora.Day + "/" + x.DataHora.Month + "/" + x.DataHora.Year).ToList();
+                    var diasAgendadosComDistinctOrdenado = ctx.Agenda.OrderBy(x => x.DataHora).ToList().Select(x => x.DataHora.Day + "/" + x.DataHora.Month + "/" + x.DataHora.Year).Distinct();
 
-                    ViewBag.DiaComDistinct = diasAgendadosComDistinct;
-                    ViewBag.DiaSemDistinct = diasAgendadosSemDistinct;
+                    ViewBag.DiaComDistinctOrdenado = diasAgendadosComDistinctOrdenado;
 
                     //Retornando as propriedades da VM já populadas com a da Entidade
                     if (partial)
                         return PartialView(propriedadesDaModelVM);
                     else
                         return View(propriedadesDaModelVM);
-
                 }
             }
         }
@@ -213,6 +210,7 @@ namespace PROJ_RYAN.Controllers
             return Json("sucesso", JsonRequestBehavior.AllowGet);
         }
         // GET: Agenda2/Edit/5
+        [HttpGet]
         public async Task<ActionResult> AtualizarDadosClientes(int? id)
         {
             var usuarioLogado = HttpContext.Session["usuario"];
@@ -231,7 +229,7 @@ namespace PROJ_RYAN.Controllers
                 {
                     return HttpNotFound();
                 }
-                return View(agenda);
+                return PartialView(agenda);
             }
         }
 
@@ -278,7 +276,7 @@ namespace PROJ_RYAN.Controllers
                 {
                     return HttpNotFound();
                 }
-                return View(agenda);
+                return PartialView(agenda);
             }
         }
 

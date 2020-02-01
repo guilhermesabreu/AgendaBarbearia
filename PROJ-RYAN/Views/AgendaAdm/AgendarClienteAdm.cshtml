@@ -22,7 +22,7 @@
     <section class="row justify-content-center">
         <section class="col-12">
 
-            @using (Html.BeginForm("AgendarClienteAdm", "AgendaAdm",FormMethod.Post,new { @id = "agendarForm" }))
+            @using (Html.BeginForm("AgendarClienteAdm", "AgendaAdm", FormMethod.Post, new { @id = "agendarForm" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <label id="icon" for="name"><i class="icon-user"></i></label>
-                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @id="txtNome" ,@class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "Nome Completo", @style = "margin-top:-43px;margin-left:33px;width:100%" } })
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @id = "txtNome", @class = "col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 form-control", @placeholder = "Nome Completo", @style = "margin-top:-43px;margin-left:33px;width:100%" } })
                     @{
                         if (@ViewBag.NomeInvalido != String.Empty || @ViewBag.NomeNaoInformado != String.Empty)
                         {
@@ -82,7 +82,7 @@
         </section>
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
         }
-        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     </section>
 </section>

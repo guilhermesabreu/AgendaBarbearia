@@ -8,7 +8,7 @@
     <link href="~/Content/Style.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-united.css" rel="stylesheet" type="text/css" />
     @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
-    <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/Content/grid.min.css" rel="stylesheet" />
     <link href="~/Content/Agenda.css" rel="stylesheet" />
 </head>
 
@@ -29,7 +29,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/AgendaAdm/ListaAgendadosAdm">Agenda</a></li>
+                    <li><a onclick="agendarHorario()" data-toggle="modal" data-target="#modalAgendar">Agenda</a></li>
                     <li><a class="active" id="opcAdm" href="/LoginCadastro/Index">Entrar como o Dono do Salão</a></li>
                 </ul>
             </div>
@@ -39,7 +39,7 @@
         <div class="col-md-1 col-sm-2 col-xs-2 col-3 col-lg-2">
             <input width="70" onclick="agendarHorario()" data-toggle="modal" data-target="#modalAgendar" type="image" src="~/Images/teste.png" title="Agendar" alt="Agendar">
         </div>
-        <input type="hidden" id="abrirModalResposta" data-toggle="modal" data-target="#modalResposta"/>
+        <input type="hidden" id="abrirModalResposta" data-toggle="modal" data-target="#modalResposta" />
         <div class="col-md-1 col-sm-2 col-xs-2 col-3 col-lg-1 col-md-offset-4 col-sm-offset-5 col-xs-offset-3 col-lg-offset-4">
             <input type="image" src="~/Images/horariologo.png" width="70" title="Horários de Serviço" alt="Horários de Serviço" data-toggle="modal" data-target="#modalHorario">
         </div>
@@ -49,11 +49,15 @@
     @RenderPage("~/Views/Modais/Horarios.cshtml")
     <!-- Modal Agendar-->
     @RenderPage("~/Views/Modais/Agenda.cshtml")
+    <!-- Modal Atualizar-->
+    @RenderPage("~/Views/Modais/Atualizar.cshtml")
+    <!-- Modal Deletar-->
+    @RenderPage("~/Views/Modais/Deletar.cshtml")
     <!-- Modal Resposta-->
     @RenderPage("~/Views/Modais/Resposta.cshtml")
     <br />
     @{
-        foreach (var diasComDistinct in ViewBag.DiaComDistinct)
+        foreach (var diasComDistinct in ViewBag.DiaComDistinctOrdenado)
         {
             <div class="table-responsive" id="tamanhoTable">
                 <div class="container">
@@ -95,8 +99,10 @@
                                                 @Html.DisplayFor(modelItem => item.Celular)
                                             </td>
                                             <td class="sizeColumn4" style="width:10%;color:black;" id="acoes">
-                                                @Html.ActionLink("Upd", "AtualizarDadosClientes", new { id = item.ClienteId }, new { @class = "btn btn-success", @style = "background-color:#05169c" })
-                                                @Html.ActionLink("Del", "DeletarAgendamento", new { id = item.ClienteId }, new { @class = "btn btn-danger", @style = "background-color:#e95420" })
+                                                <a href="#" data-toggle="modal" data-target="#modalAtualizar" style="background-color:#05169c" class="btn btn-success btnAtualizar" data-value="@item.ClienteId">Upd</a>
+                                                <a href="#" data-toggle="modal" data-target="#modalDeletar" style="background-color:#e95420" class="btn btn-danger btnDeletar" data-value="@item.ClienteId">Del</a>
+                                                @*@Html.ActionLink("Upd", "AtualizarDadosClientes", new { id = item.ClienteId }, new { @class = "btn btn-success btnAtualizar", @style = "background-color:#05169c" })*@
+                                                @*@Html.ActionLink("Del", "DeletarAgendamento", new { id = item.ClienteId }, new { @class = "btn btn-danger", @style = "background-color:#e95420" })*@
                                             </td>
                                         </tr>
                                     </tbody>

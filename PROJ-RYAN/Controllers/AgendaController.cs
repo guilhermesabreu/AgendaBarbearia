@@ -19,7 +19,7 @@ namespace PROJ_RYAN.Controllers
 
         // GET: Agenda2
         [HttpGet]
-        public async Task<ActionResult> ListaAgendadosCliente()
+        public async Task<ActionResult> ListaAgendadosCliente(bool partial = false)
         {
             using (ctx)
             {
@@ -47,14 +47,15 @@ namespace PROJ_RYAN.Controllers
                     propriedadesDaModelVM.Add(x);
                 }
 
-                var diasAgendadosComDistinct = ctx.Agenda.Select(x => x.DataHora.Day + "/" + x.DataHora.Month + "/" + x.DataHora.Year).OrderBy(x => x).ToList().Distinct();
-                var diasAgendadosSemDistinct = ctx.Agenda.Select(x => x.DataHora.Day + "/" + x.DataHora.Month + "/" + x.DataHora.Year).ToList();
+                var diasAgendadosComDistinctOrdenado = ctx.Agenda.OrderBy(x => x.DataHora).ToList().Select(x => x.DataHora.Day + "/" + x.DataHora.Month + "/" + x.DataHora.Year).Distinct();
 
-                ViewBag.DiaComDistinct = diasAgendadosComDistinct;
-                ViewBag.DiaSemDistinct = diasAgendadosSemDistinct;
+                ViewBag.DiaComDistinctOrdenado = diasAgendadosComDistinctOrdenado;
 
                 //Retornando as propriedades da VM já populadas com a da Entidade
-                return View(propriedadesDaModelVM);
+                if (partial)
+                    return PartialView(propriedadesDaModelVM);
+                else
+                    return View(propriedadesDaModelVM);
             }
         }
   
@@ -82,113 +83,6 @@ namespace PROJ_RYAN.Controllers
                     await DeleteConfirmed(itemId);
                 }
             }
-        }
-
-        // GET: Agenda2/Create
-        public ActionResult AgendarCliente()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AgendarCliente(AgendaViewModel viewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                using (ctx)
-                {
-                    var agenda = new Agenda
-                    {
-                        ClienteId = viewModel.ClienteId,
-                        Nome = viewModel.Nome,
-                        Email = viewModel.Email,
-                        DataHora = viewModel.Data,
-                        Hora = viewModel.Hora,
-                        Celular = viewModel.Celular
-                    };
-
-                    if (!string.IsNullOrEmpty(viewModel.Nome))
-                    {
-                        var dataClienteCadastrado = ctx.Agenda.Where(a => a.DataHora == agenda.DataHora && a.Hora == agenda.Hora).FirstOrDefault();
-                        var clienteCadastrado = ctx.Agenda.Where(a => a.Nome == agenda.Nome).FirstOrDefault();
-
-                        if (clienteCadastrado == null)
-                        {
-                            TimeSpan minutos0 = new TimeSpan(09, 30, 0);
-                            TimeSpan minutos1 = new TimeSpan(10, 20, 0);
-                            TimeSpan minutos2 = new TimeSpan(11, 10, 0);
-                            TimeSpan minutos3 = new TimeSpan(12, 00, 0);
-                            TimeSpan minutos4 = new TimeSpan(12, 50, 0);
-                            TimeSpan minutos5 = new TimeSpan(13, 40, 0);
-                            TimeSpan minutos6 = new TimeSpan(14, 30, 0);
-                            TimeSpan minutos7 = new TimeSpan(15, 20, 0);
-                            TimeSpan minutos8 = new TimeSpan(16, 10, 0);
-                            TimeSpan minutos9 = new TimeSpan(17, 00, 0);
-                            TimeSpan minutos10 = new TimeSpan(17, 50, 0);
-                            TimeSpan minutos11 = new TimeSpan(18, 40, 0);
-
-                            List<TimeSpan> times = new List<TimeSpan>();
-                            times.Add(minutos0);
-                            times.Add(minutos1);
-                            times.Add(minutos2);
-                            times.Add(minutos3);
-                            times.Add(minutos4);
-                            times.Add(minutos5);
-                            times.Add(minutos6);
-                            times.Add(minutos7);
-                            times.Add(minutos8);
-                            times.Add(minutos9);
-                            times.Add(minutos10);
-                            times.Add(minutos11);
-                            var horaAtual = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
-
-                            if (dataClienteCadastrado == null)
-                            {
-                                if (times.Contains(agenda.Hora.Value))
-                                {
-                                    if (agenda.DataHora > DateTime.Now.Date)
-                                    {
-                                        ctx.Agenda.Add(agenda);
-                                        await ctx.SaveChangesAsync();
-                                    }
-                                    else if (agenda.DataHora == DateTime.Now.Date && TimeSpan.Compare(agenda.Hora.Value, horaAtual) == 1)
-                                    {
-                                        ctx.Agenda.Add(agenda);
-                                        await ctx.SaveChangesAsync();
-                                    }
-                                    else
-                                    {
-                                        ViewBag.DataAnterior = "Só é possível Cadastrar Datas do dia de Hoje em diante";
-                                        return View();
-                                    }
-                                }
-                                else
-                                {
-                                    ViewBag.HoraInvalida = "Escolha apenas nossos horários de serviço. das 09:30 até as 19:30";
-                                    return View();
-                                }
-                            }
-                            else
-                            {
-                                ViewBag.DataIndisponivel = "Esta data/hora já foi agendada, escolha outra data";
-                                return View();
-                            }
-                        }
-                        else
-                        {
-                            ViewBag.NomeInvalido = "Você já foi cadastrado, verifique seu nome e Horário na nossa Agenda";
-                            return View();
-                        }
-                    }
-                    else
-                    {
-                        ViewBag.NomeNaoInformado = "Digite seu nome Completo";
-                        return View();
-                    }
-                }
-            }
-            return RedirectToAction("ListaAgendadosCliente");
         }
 
         // POST: Agenda2/Delete/5

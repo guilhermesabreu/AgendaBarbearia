@@ -29,7 +29,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/AgendaAdm/ListaAgendadosAdm">Agenda</a></li>
+                    <li><a onclick="agendarHorario()" data-toggle="modal" data-target="#modalAgendar">Agenda</a></li>
                     <li><a class="active" id="opcAdm" href="/LoginCadastro/Index">Entrar como o Dono do Salão</a></li>
                 </ul>
             </div>
@@ -37,35 +37,23 @@
     </div>
     <div class="container-fluid" style="margin-top:70px">
         <div class="col-md-1 col-sm-2 col-xs-2 col-3 col-lg-2">
-            <a href="/AgendaAdm/AgendarClienteAdm"><input width="70" type="image" src="~/Images/teste.png" title="Agendar" alt="Agendar"></a>
+            <input width="70" onclick="agendarHorario()" data-toggle="modal" data-target="#modalAgendar" type="image" src="~/Images/teste.png" title="Agendar" alt="Agendar">
         </div>
+        <input type="hidden" id="abrirModalResposta" data-toggle="modal" data-target="#modalResposta" />
         <div class="col-md-1 col-sm-2 col-xs-2 col-3 col-lg-1 col-md-offset-4 col-sm-offset-5 col-xs-offset-3 col-lg-offset-4">
-            <input type="image" src="~/Images/horariologo.png" width="70" title="Horários de Serviço" alt="Horários de Serviço" data-toggle="modal" data-target="#modalExemplo">
+            <input type="image" src="~/Images/horariologo.png" width="70" title="Horários de Serviço" alt="Horários de Serviço" data-toggle="modal" data-target="#modalHorario">
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" style="color:#05169c;font-size:130%;font-weight:700" id="exampleModalLabel">Horários de Funcionamento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="color:#05169c;font-size:130%">
-                    09:30 | 10:20 | 11:10 | 12:00 | 12:50 | 13:40 | 14:30 | 15:20 | 16:10 | 17:00 | 17:50 | 18:40 | 19:30
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary"><a style="text-decoration:none;color:white" href="/AgendaAdm/AgendarClienteAdm">Agendar Corte</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <!-- Modal Horarios-->
+    @RenderPage("~/Views/Modais/Horarios.cshtml")
+    <!-- Modal Agendar-->
+    @RenderPage("~/Views/Modais/Agenda.cshtml")
+    <!-- Modal Resposta-->
+    @RenderPage("~/Views/Modais/Resposta.cshtml")
     <br />
     @{
-        foreach (var diasComDistinct in ViewBag.DiaComDistinct)
+        foreach (var diasComDistinct in ViewBag.DiaComDistinctOrdenado)
         {
             <div class="table-responsive" id="tamanhoTable">
                 <div class="container">
@@ -113,13 +101,12 @@
                     </div>
                 </div>
             </div>
-
         }
     }
 </body>
-
 <!-- Importando o jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
 <!-- Importando o js do bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/enviarRequisicao.js"></script>
+
