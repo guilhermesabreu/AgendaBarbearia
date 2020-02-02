@@ -10,14 +10,6 @@
     <link href="~/Content/Agenda.css" rel="stylesheet" />
 </head>
 
-<div class="container" style="margin-top:20px">
-    <div class="text-center" style="margin-bottom:5px;">
-        <input type="image" src="~/Images/horariologo.png" title="Horários de Serviço" alt="Horários de Serviço" data-toggle="modal" data-target="#modalExemplo" width="6%">
-    </div>
-</div>
-<!-- Modal -->
-@RenderPage("~/Views/Modais/Horarios.cshtml")
-
 <section class="container-fluid">
     <section class="row justify-content-center">
         <div class="col-12">
@@ -30,7 +22,7 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ClienteId)
 
-                <div class="text-center"> Tem certeza que deseja deletar ?</div>
+                <div class="text-center"> Tem certeza que deseja deletar o agendamento ?</div>
                 <div class="form-group">
                     <div class="text-center">
                         <input type="submit" value="Deletar" class="btn btn-default" style="background-color:red" />

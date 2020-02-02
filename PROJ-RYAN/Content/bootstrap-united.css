@@ -7068,6 +7068,7 @@ button.close {
 }
 
 .modal {
+    padding-right: 0px !important;
     position: fixed;
     top: 0;
     right: 0;

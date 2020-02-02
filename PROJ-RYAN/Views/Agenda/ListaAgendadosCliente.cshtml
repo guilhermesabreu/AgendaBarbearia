@@ -8,7 +8,7 @@
     <link href="~/Content/Style.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-united.css" rel="stylesheet" type="text/css" />
     @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
-    <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/Content/grid.min.css" rel="stylesheet" />
     <link href="~/Content/Agenda.css" rel="stylesheet" />
 </head>
 
@@ -29,7 +29,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a onclick="agendarHorario()" data-toggle="modal" data-target="#modalAgendar">Agenda</a></li>
+                    <li><a data-toggle="modal" data-target="#modalAgendar">Agenda</a></li>
                     <li><a class="active" id="opcAdm" href="/LoginCadastro/Index">Entrar como o Dono do Salão</a></li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="container-fluid" style="margin-top:70px">
         <div class="col-md-1 col-sm-2 col-xs-2 col-3 col-lg-2">
-            <input width="70" onclick="agendarHorario()" data-toggle="modal" data-target="#modalAgendar" type="image" src="~/Images/teste.png" title="Agendar" alt="Agendar">
+            <input width="70" data-toggle="modal" data-target="#modalAgendar" type="image" src="~/Images/teste.png" title="Agendar" alt="Agendar">
         </div>
         <input type="hidden" id="abrirModalResposta" data-toggle="modal" data-target="#modalResposta" />
         <div class="col-md-1 col-sm-2 col-xs-2 col-3 col-lg-1 col-md-offset-4 col-sm-offset-5 col-xs-offset-3 col-lg-offset-4">
@@ -49,6 +49,10 @@
     @RenderPage("~/Views/Modais/Horarios.cshtml")
     <!-- Modal Agendar-->
     @RenderPage("~/Views/Modais/Agenda.cshtml")
+    <!-- Modal Atualizar-->
+    @RenderPage("~/Views/Modais/Atualizar.cshtml")
+    <!-- Modal Deletar-->
+    @RenderPage("~/Views/Modais/Deletar.cshtml")
     <!-- Modal Resposta-->
     @RenderPage("~/Views/Modais/Resposta.cshtml")
     <br />
@@ -101,12 +105,13 @@
                     </div>
                 </div>
             </div>
+
         }
     }
 </body>
 <!-- Importando o jQuery -->
-<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- Importando o js do bootstrap -->
-<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="~/Scripts/enviarRequisicao.js"></script>
 

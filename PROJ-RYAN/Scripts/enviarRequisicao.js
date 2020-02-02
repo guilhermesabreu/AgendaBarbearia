@@ -1,9 +1,4 @@
-﻿function agendarHorario() {
-    $("#modalAgendar").modal("show");
-    return false;
-}
-
-$(".btnAtualizar").click(function () {
+﻿$(".btnAtualizar").click(function () {
     var id = $(this).data("value");
     $("#formAtualizar").load("/AgendaAdm/AtualizarDadosClientes/" + id,
         function () {
